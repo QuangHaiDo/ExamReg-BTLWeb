@@ -1,5 +1,5 @@
 <?php
-    require_once("nghiepvu/taoLopHP/view/taoLopHPView.php");
+    require_once("nghiepvu/taoLopHP/controller/taoLopHPController.php");
 
     session_start();
  
@@ -40,7 +40,7 @@
               giao dien nhap danh sach sinh vien qua excel
         </div>
         <div class="tab-pane fade" id="tao-hp" role="tabpanel" aria-labelledby="tao-ds-hp">
-         <?php $abc = new taoLopHPView(); $abc->show(); ?>
+         <?php $abc = new taoLopHPController(); $abc->proc();?>
             
         </div>
         <div class="tab-pane fade" id="nhap-dkh" role="tabpanel" aria-labelledby="nhap-ds-dkh">

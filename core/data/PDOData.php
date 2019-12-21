@@ -1,7 +1,4 @@
 <?php
-    namespace core\data;
-    use \PDO;
-    
 	class PDOData {
 		private $db = null; //Doi tuong PDO
 		
