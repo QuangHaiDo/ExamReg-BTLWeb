@@ -5,7 +5,6 @@ session_start();
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 	if ($_SESSION["vaitro"] == "admin") header("location: admin.php");
 	else header("location: student.php");
-	exit;
 }
 ?>
 

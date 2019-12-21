@@ -1,0 +1,13 @@
+<?php
+    namespace selab\control;
+    
+    class _Default {
+        public function _default($arr) {
+            echo "default";
+        }
+        
+        public function _error($arr) {
+            echo "error";
+            var_dump($arr);
+        }
+    }

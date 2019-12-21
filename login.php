@@ -1,4 +1,5 @@
 <?php 
+
 /*
     session_start();
     
@@ -9,6 +10,10 @@
         exit;
     }
 */
+
+    use core\data\PDOData;
+    require_once("core/data/PDOData.php");
+
     if (isset($_POST)){
         $name = $_POST["name"];
         $pass = $_POST["pass"];
@@ -16,7 +21,7 @@
         try {
             /* Ket noi CSDL */
             $db = new PDO("mysql:host=localhost:3306;dbname=QLDT;", "root", "123456");
-            
+            //$db = new PDOData();
             $stmt = $db->prepare("select * from THONGTINTAIKHOAN where MASV like ? and MK like ? ;");
             $stmt->bindValue(1, $name);
             $stmt->bindValue(2, $pass);

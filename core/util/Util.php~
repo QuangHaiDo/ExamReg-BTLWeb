@@ -1,0 +1,20 @@
+<?php
+    namespace core\util;
+    
+    class Util {
+        public static function clean($input, $maxlength=0) { 
+            //Gioi han do dai
+	        if ($maxlength > 0) $input = substr($input, 0, $maxlength); 
+	        
+            if (function_exists('mysql_real_escape_string')){ //Co ham huong den MySQL
+                if (get_magic_quotes_gpc())  //Xau da duoc escape theo PHP
+                    $input = stripslashes($input); //Bo escape theo PHP
+                $input = mysql_real_escape_string($input); //Them escape theo MySQL
+            }   else  {
+                if (!$this->get_magic_quotes_gpc()) //Chua duoc escape theo PHP
+                    $value = addslashes($input); //Escape theo PHP
+            }
+            return $input;
+        }
+    
+    }

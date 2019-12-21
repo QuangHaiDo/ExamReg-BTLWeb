@@ -1,0 +1,19 @@
+<?php
+    namespace core\control;
+    require_once("app/core/control/Routing.php");
+    
+    class FrontController {
+        public static function proc() {             
+            //dinh tuyen
+            $ret = Routing::proc();
+            
+        
+            //Thuc thi
+            $filename = "app/".$ret["moduleName"]."/control/".ucfirst($ret["controllerName"])."Controller.php";   
+            require_once($filename);
+            
+            $controllerName = "\\".$ret["moduleName"]."\\control\\".ucfirst($ret["controllerName"])."Controller";
+            $controller = new $controllerName();
+            $controller->$ret["actionName"]($ret["parameters"]); 
+        }
+    }

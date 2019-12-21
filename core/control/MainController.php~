@@ -1,0 +1,24 @@
+<?php
+    namespace core\control;
+    require_once("app/core/model/Auth.php");
+    require_once("app/core/control/Routing.php");
+    
+    class MainController {
+        public static function proc() { 
+            //xac thuc
+            //\core\model\Auth::proc();
+            
+            //dinh tuyen
+            $ret = Routing::proc();
+            
+        
+            //Thuc thi
+            $filename = "app/".$ret["moduleName"]."/control/".ucfirst($ret["controllerName"])."Controller.php";   
+            require_once($filename);
+            
+            $controllerName = "\\".$ret["moduleName"]."\\control\\".ucfirst($ret["controllerName"])."Controller";
+            $controller = new $controllerName();
+            $controller->$ret["actionName"]($ret["parameters"]); 
+        }
+    }
+

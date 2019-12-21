@@ -1,0 +1,9 @@
+<?php
+    namespace selab\control;
+    require_once("control/DefaultController.php");
+    
+    class StudentController extends DefaultController {
+        public function _default($arr) {
+            echo "Danh sach sinh vien";
+        }
+    }

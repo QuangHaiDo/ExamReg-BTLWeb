@@ -14,28 +14,29 @@
 
 </head>
 <body>
-<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-  <span class="navbar-text">
-    trang danh cho student
-  </span>
-  <span> Nguoi dung: <?php echo $_SESSION["username"] ?> </span> 
-<a href="logout.php" >Sign Out of Your Account</a>
-</nav>
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <span class="navbar-text">
+      trang danh cho student
+    </span>
+    <span> Nguoi dung: <?php echo $_SESSION["username"] ?> </span> 
+    <a href="logout.php" >Sign Out</a>
+  </nav>
 
-<div class="row">
+  <div class="row">
+
     <div class="col-2">
       <div class="list-group" id="list-tab" role="tablist">
         <a class="list-group-item list-group-item-action active" id="dang-ky-thi" data-toggle="tab" href="#dk-thi" role="tab" aria-controls="dk-thi" aria-selected="true">Dang ky thi</a>
         <a class="list-group-item list-group-item-action" id="in-dk-thi" data-toggle="tab" href="#in-dkthi" role="tab" aria-controls="in-dkthi" aria-selected="false">In dang ky thi</a>
-       </div>
+      </div>
     </div>
     <div class="col-10">
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade active show" id="dk-thi" role="tabpanel" aria-labelledby="dang-ky-thi">
-            giao dien dang ky lich thi
+              giao dien dang ky lich thi
         </div>
         <div class="tab-pane fade" id="in-dkthi" role="tabpanel" aria-labelledby="in-dk-thi">
-            Giao dien in dang ky thi
+              Giao dien in dang ky thi
         </div>
       </div>
     </div>
