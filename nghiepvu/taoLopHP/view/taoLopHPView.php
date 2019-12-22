@@ -11,8 +11,6 @@
 
         
         public function view(){
-           // echo "giao dien tao hoc phan de sinh vien dang ky";
-            //echo $this->data; 
             echo "<!DOCTYPE html>
             <html>
             <body>

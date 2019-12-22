@@ -1,6 +1,6 @@
 <?php
     require_once("nghiepvu/taoLopHP/controller/taoLopHPController.php");
-
+    require_once("nghiepvu/taoKyThi/controller/taoKyThiController.php");
     session_start();
  
     // Check if the user is logged in, if not then redirect him to login page
@@ -27,7 +27,7 @@
     <div class="col-2">
       <div class="list-group" id="list-tab" role="tablist">
         <a class="list-group-item list-group-item-action active" id="nhap-ds-sv" data-toggle="tab" href="#ds-sv" role="tab" aria-controls="ds-sv" aria-selected="true">Nhap danh sach sinh vien</a>
-        <a class="list-group-item list-group-item-action" id="tao-ds-hp" data-toggle="tab" href="#tao-hp" role="tab" aria-controls="tao-hp" aria-selected="false">Tao danh sach lop hoc phan</a>
+        <a class="list-group-item list-group-item-action" id="tao-ds-hp" data-toggle="tab" href="#tao-hp" role="tab" aria-controls="tao-hp" aria-selected="false">Danh sach lop hoc phan</a>
         <a class="list-group-item list-group-item-action" id="nhap-ds-dkh" data-toggle="tab" href="#nhap-dkh" role="tab" aria-controls="nhap-dkh" aria-selected="false">Nhap danh sach dang thi hoc</a>
         <a class="list-group-item list-group-item-action" id="tao-lich-thi" data-toggle="tab" href="#tao-lichthi" role="tab" aria-controls="tao-lichthi" aria-selected="false">Tao lich thi</a>
         <a class="list-group-item list-group-item-action" id="in-ds-thi" data-toggle="tab" href="#in-dsthi" role="tab" aria-controls="in-dsthi" aria-selected="false">In danh sach thi</a>
@@ -54,7 +54,7 @@
         </div>
         <div class="tab-pane fade" id="tao-lichthi" role="tabpanel" aria-labelledby="tao-lich-thi">
           <div class="jumbotron">
-            Giao dien tao lich thi
+          <?php $abc = new taoKyThiController(); $abc->proc();?>
           </div>
         </div>
         <div class="tab-pane fade" id="in-dsthi" role="tabpanel" aria-labelledby="in-ds-thi">
@@ -70,5 +70,35 @@
 
 <script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="ajax/ajax.js"></script>
+<script>
+		document.getElementById("taocathi-form").onsubmit = function() {
+      // Gui request bang AJAX
+			let xmlhttp = getXmlHttpObject();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4) {
+					// Nhan ket qua JSON
+					let v = xmlhttp.responseText;
+					let o = JSON.parse(v);
+					if (v.length > 0) {
+						// Cap nhat DOM
+						//document.getElementById("out").innerText = v.toString();
+						console.log(v);
+					}
+				}
+			};
+
+			xmlhttp.open("POST", "nghiepvu/taoKyThi/controller/themKythiAPI.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send("mahp="+$("#mahp").val()
+                  +"&makythi="+ $("#makythi").val()
+                  +"&lichthi="+ $("#lichthi").val()
+                  +"&soluong="+ $("#soluong").val()
+                  +"&phongthi="+ $("#phongthi").val()
+                  );
+			return false;
+		};
+	</script>
 </html>
 

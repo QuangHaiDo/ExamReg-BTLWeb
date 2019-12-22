@@ -20,7 +20,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 	Mật khẩu <input type="text" name="password" id="password"/> <br/>
 	<input type="submit" value="Đăng nhập"/>
 </form>
-	<script type="text/javascript" src="/ajax/ajax.js"></script>
+	<script type="text/javascript" src="ajax/ajax.js"></script>
 	<script>
 		document.getElementById("login-form").onsubmit = function() {
 			// Gui request bang AJAX
