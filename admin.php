@@ -36,21 +36,31 @@
 
     <div class="col-10">
       <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade active show" id="ds-sv" role="tabpanel" aria-labelledby="nhap-ds-sv">
-              giao dien nhap danh sach sinh vien qua excel
-        </div>
-        <div class="tab-pane fade" id="tao-hp" role="tabpanel" aria-labelledby="tao-ds-hp">
-         <?php $abc = new taoLopHPController(); $abc->proc();?>
+        <div class="tab-pane fade active show" id="ds-sv" role="tabpanel" aria-labelledby="nhap-ds-sv" >
+           <div style="background-color:red;" class="jumbotron">
+            giao dien nhap danh sach sinh vien qua excel
+          </div>
             
         </div>
+        <div class="tab-pane fade" id="tao-hp" role="tabpanel" aria-labelledby="tao-ds-hp">
+          <div style="background-color:red;" class="jumbotron">
+            <?php $abc = new taoLopHPController(); $abc->proc();?>
+          </div>
+        </div>
         <div class="tab-pane fade" id="nhap-dkh" role="tabpanel" aria-labelledby="nhap-ds-dkh">
-              Giao dien nhap danh sach sv-lop hoc phan
+          <div class="jumbotron">
+          Giao dien nhap danh sach sv-lop hoc phan
+          </div>
         </div>
         <div class="tab-pane fade" id="tao-lichthi" role="tabpanel" aria-labelledby="tao-lich-thi">
-              Giao dien tao lich thi
+          <div class="jumbotron">
+            Giao dien tao lich thi
+          </div>
         </div>
         <div class="tab-pane fade" id="in-dsthi" role="tabpanel" aria-labelledby="in-ds-thi">
-              Giao dien in thong tin tung ca thi
+              <div class="jumbotron">
+            Giao dien in thong tin tung ca thi
+          </div>
         </div>
       </div>
     </div>

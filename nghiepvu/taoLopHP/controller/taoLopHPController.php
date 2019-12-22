@@ -14,9 +14,8 @@ require_once("nghiepvu/taoLopHP/model/taoLopHPModel.php");
             $model = new taoLopHPModel();
             $data = $model->getAll();
             $view = new taoLopHPView($data);
-            echo ($view->view());
-        
-            //echo "hbtb";
+            $view->view();
+    
         }
     }
 ?>
