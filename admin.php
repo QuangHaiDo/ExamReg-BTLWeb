@@ -80,7 +80,7 @@
 				if (xmlhttp.readyState == 4) {
 					// Nhan ket qua JSON
 					let v = xmlhttp.responseText;
-					let o = JSON.parse(v);
+					//let o = JSON.parse(v);
 					if (v.length > 0) {
 						// Cap nhat DOM
 						//document.getElementById("out").innerText = v.toString();

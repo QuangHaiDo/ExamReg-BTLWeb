@@ -83,9 +83,25 @@
 		* $queryTmpl: Mẫu câu cập nhật insert, update, delete, ...
 		* $paras: Mảng các tham số cho câu lệnh cập nhật
 		* return: Số bản ghi đã cập nhật
+		* chua insert duoc :((
 		*/
-		public function doPrepareSql() {
+		public function doPrepareSql($queryTmpl,$paras) {
+			$count = 0;
+			$a =$b="";
+			try {
+				$stmt = $this->db->prepare($queryTmpl);
+				
+				foreach ($paras as $k=>$v){
+					$a.=($k+1).",";
+					$b.=($v).",";
+					$stmt->bindValue($k+1, $v);
+				}
+				//$stmt->execute(); // bo di ma chay thu
+				
+			} catch(PDOException $ex) {	echo $ex; $count=-1; }
+			// xem dau ra the nao
+			$out = "trong: ".$queryTmpl." ".$a." ".$b;
+			return $out;
 		}	
-		
 		 
 	}

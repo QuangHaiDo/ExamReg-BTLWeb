@@ -10,7 +10,6 @@
             $db = new PDOData();
             $data = $db->doQuery("select * from HOCPHAN;");
             return $data;
-            //return "ket qua cua getAll";
         }
     }
 ?>
